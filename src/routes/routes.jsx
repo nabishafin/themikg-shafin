@@ -13,6 +13,8 @@ import Report from "../pages/dashboardpages/Report";
 import InterestList from "../pages/dashboardpages/InterestList";
 import Profile from "../pages/dashboardpages/Profile";
 import Terms from "../pages/dashboardpages/Terms";
+import PrivacyPolicy from "../pages/dashboardpages/PrivacyPolicy";
+import About from "../pages/dashboardpages/About";
 
 const routes = createBrowserRouter([
   // {
@@ -64,8 +66,12 @@ const routes = createBrowserRouter([
         element: <Terms />,
       },
       {
-        path: "report",
-        element: <Report />,
+        path: "settings/privacy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "settings/about",
+        element: <About />,
       },
     ],
   },
