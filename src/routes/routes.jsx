@@ -7,6 +7,12 @@ import DashboardLayout from "../layout/DashboardLayout";
 // import Report from "../pages/Report";
 // import Settings from "../pages/Settings";
 import Dashboard from "../pages/dashboardpages/Dashboard ";
+import Users from "../pages/dashboardpages/Users";
+import Earning from "../pages/dashboardpages/Earning";
+import Report from "../pages/dashboardpages/Report";
+import InterestList from "../pages/dashboardpages/InterestList";
+import Profile from "../pages/dashboardpages/Profile";
+import Terms from "../pages/dashboardpages/Terms";
 
 const routes = createBrowserRouter([
   // {
@@ -33,26 +39,34 @@ const routes = createBrowserRouter([
         index: true,
         element: <Dashboard />,
       },
-      // {
-      //   path: "users",
-      //   element: <Users />,
-      // },
-      // {
-      //   path: "earning",
-      //   element: <Earning />,
-      // },
-      // {
-      //   path: "interest-list",
-      //   element: <InterestList />,
-      // },
-      // {
-      //   path: "report",
-      //   element: <Report />,
-      // },
-      // {
-      //   path: "settings",
-      //   element: <Settings />,
-      // },
+      {
+        path: "users",
+        element: <Users />,
+      },
+      {
+        path: "earning",
+        element: <Earning />,
+      },
+      {
+        path: "interest-list",
+        element: <InterestList />,
+      },
+      {
+        path: "report",
+        element: <Report />,
+      },
+      {
+        path: "settings/profile",
+        element: <Profile />,
+      },
+      {
+        path: "settings/terms",
+        element: <Terms />,
+      },
+      {
+        path: "report",
+        element: <Report />,
+      },
     ],
   },
 ]);
