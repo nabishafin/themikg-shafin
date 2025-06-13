@@ -12,6 +12,7 @@ import About from "../pages/dashboardpages/About";
 import SignInPage from "../pages/auth/SignInPage";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import VerifyCode from "../pages/auth/VerifyCode";
+import SetNewPassword from "../pages/auth/SetNewPassword";
 
 const routes = createBrowserRouter([
   {
@@ -26,10 +27,10 @@ const routes = createBrowserRouter([
     path: "/verification", // Fixed typo
     element: <VerifyCode />,
   },
-  // {
-  //   path: "/reset-password", // Fixed naming convention
-  //   element: <PasswordReset />,
-  // },
+  {
+    path: "/reset-password", // Fixed naming convention
+    element: <SetNewPassword />,
+  },
   {
     path: "/dashboard",
     element: <DashboardLayout />,
