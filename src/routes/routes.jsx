@@ -10,20 +10,22 @@ import Terms from "../pages/dashboardpages/Terms";
 import PrivacyPolicy from "../pages/dashboardpages/PrivacyPolicy";
 import About from "../pages/dashboardpages/About";
 import SignInPage from "../pages/auth/SignInPage";
+import ForgotPassword from "../pages/auth/ForgotPassword";
+import VerifyCode from "../pages/auth/VerifyCode";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <SignInPage />,
   },
-  // {
-  //   path: "/forgot-password",
-  //   element: <ForgotPassword />,
-  // },
-  // {
-  //   path: "/verification", // Fixed typo
-  //   element: <VerificationPage />,
-  // },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/verification", // Fixed typo
+    element: <VerifyCode />,
+  },
   // {
   //   path: "/reset-password", // Fixed naming convention
   //   element: <PasswordReset />,

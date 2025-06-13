@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import img from "../../assets/image.png";
+import { Link } from "react-router-dom";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -82,9 +83,12 @@ export default function SignInPage() {
                   />
                   <span className="ml-2">Remember password</span>
                 </label>
-                <button className="text-sm text-[#23769D] hover:text-blue-300 transition-colors">
+                <Link
+                  to={"/forgot-password"}
+                  className="text-sm text-[#23769D] hover:text-blue-300 transition-colors"
+                >
                   Forgot password?
-                </button>
+                </Link>
               </div>
 
               {/* Sign In Button */}
