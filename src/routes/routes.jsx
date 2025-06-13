@@ -1,11 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layout/DashboardLayout";
-
-// import Users from "../pages/Users";
-// import Earning from "../pages/Earning";
-// import InterestList from "../pages/InterestList";
-// import Report from "../pages/Report";
-// import Settings from "../pages/Settings";
 import Dashboard from "../pages/dashboardpages/Dashboard ";
 import Users from "../pages/dashboardpages/Users";
 import Earning from "../pages/dashboardpages/Earning";
@@ -15,12 +9,13 @@ import Profile from "../pages/dashboardpages/Profile";
 import Terms from "../pages/dashboardpages/Terms";
 import PrivacyPolicy from "../pages/dashboardpages/PrivacyPolicy";
 import About from "../pages/dashboardpages/About";
+import SignInPage from "../pages/auth/SignInPage";
 
 const routes = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: <LogIn />,
-  // },
+  {
+    path: "/",
+    element: <SignInPage />,
+  },
   // {
   //   path: "/forgot-password",
   //   element: <ForgotPassword />,
