@@ -321,16 +321,15 @@ const Earning = () => {
 
   return (
     <div className=" bg-black ">
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4">
+        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4 border border-gray-500">
           <div className="text-gray-300 text-sm font-medium mb-1">
             Total Amount
           </div>
           <div className="text-cyan-400 text-2xl font-bold">{totalAmount}</div>
         </div>
 
-        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4">
+        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4 border border-gray-500">
           <div className="text-gray-300 text-sm font-medium mb-1">
             Withdrawable
           </div>
@@ -339,14 +338,14 @@ const Earning = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4">
+        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4 border border-gray-500">
           <div className="text-gray-300 text-sm font-medium mb-1">
             Total Profit
           </div>
           <div className="text-cyan-400 text-2xl font-bold">{totalProfit}</div>
         </div>
 
-        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4 flex items-center justify-between">
+        <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4 flex items-center justify-between border border-gray-500">
           <div>
             <div className="text-gray-300 text-sm font-medium mb-1">
               Percentage

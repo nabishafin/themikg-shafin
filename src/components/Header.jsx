@@ -1,7 +1,9 @@
 const Header = () => {
   return (
-    <div className="bg-[#1a7ca0] py-4 px-6 flex justify-between items-center rounded-sm m-3">
-      <h1 className="text-white text-2xl font-bold">Welcome back!</h1>
+    <div className="bg-[#1a7ca0] py-4 px-6 flex justify-between items-center rounded-sm md:m-3 m-0">
+      <h1 className="text-white text-2xl font-bold md:ml:0 ml-9">
+        Welcome back!
+      </h1>
       <div className="flex items-center gap-4">
         <button className="text-white hover:bg-[#156b8c] p-2 rounded-full">
           <svg

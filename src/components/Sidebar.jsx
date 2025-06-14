@@ -85,7 +85,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="flex h-screen w-full flex-col bg-[#222222] p-3 m-3 rounded-md">
+    <div className="flex h-screen w-full flex-col bg-[#222222] p-3 md:m-3 m-0 rounded-md">
       {/* Logo Section */}
       <div className="border-b border-gray-600 pb-4">
         <div className="flex justify-center items-center py-5">
