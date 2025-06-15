@@ -47,7 +47,7 @@ const Terms = () => {
     <div className=" text-white ">
       <div className="">
         {/* Header */}
-        <div className="bg-[#8794A5] rounded-t-lg px-6 py-4 mb-0">
+        <div className="bg-[#8794A5] rounded-lg px-6 py-3 mb-0">
           <h1 className="text-xl font-semibold">Terms & Condition</h1>
         </div>
 

@@ -90,7 +90,7 @@ const Profile = () => {
   return (
     <div className="   text-white">
       {/* Header */}
-      <div className="bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-gray-700">
+      <div className="bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-gray-700 rounded-lg">
         <div className="flex items-center gap-4">
           <Button
             variant="ghost"

@@ -58,12 +58,12 @@ const InterestList = () => {
   return (
     <div className=" bg-black">
       {/* Header */}
-      <div className="bg-gray-400 px-6 py-4">
+      <div className="bg-gray-400 px-6 py-4 rounded-md">
         <h1 className="text-xl font-semibold text-gray-800">Interest list</h1>
       </div>
 
       {/* Content */}
-      <div className="bg-black  p-6">
+      <div className="bg-black mt-4 ">
         {/* Add New Interest Section */}
         <div className="mb-8">
           <h2 className="text-white text-lg mb-4">Add New Interest</h2>
