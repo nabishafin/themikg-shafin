@@ -11,7 +11,7 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-2.5 bg-black min-h-screen">
+    <div className="flex  flex-col md:flex-row gap-2.5 bg-black  ">
       {/* Mobile Burger Button */}
       <button
         onClick={toggleSidebar}
@@ -53,7 +53,7 @@ const DashboardLayout = () => {
       {/* Main content */}
       <div className="md:w-[85%] w-full flex flex-col">
         <Header />
-        <div className="p-4 flex-1">
+        <div className="p-3 flex-1">
           <Outlet />
         </div>
       </div>

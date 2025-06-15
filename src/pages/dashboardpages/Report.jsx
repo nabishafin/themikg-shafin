@@ -60,20 +60,6 @@ const Report = () => {
       message:
         "Lorem ipsum dolor sit amet consectetur. Sample message content for Ronald Richards.",
     },
-    {
-      id: 9,
-      name: "Robert Fox",
-      email: "abc100@gmail.com",
-      message:
-        "Lorem ipsum dolor sit amet consectetur. Sample message content for Robert Fox.",
-    },
-    {
-      id: 10,
-      name: "Ahmad Kabir",
-      email: "abc100@gmail.com",
-      message:
-        "Lorem ipsum dolor sit amet consectetur. Sample message content for Ahmad Kabir.",
-    },
   ];
 
   // Set the first user as selected by default
@@ -97,7 +83,7 @@ const Report = () => {
               <div
                 key={user.id}
                 onClick={() => setSelectedUser(user)}
-                className={`p-4 cursor-pointer hover:bg-gray-600 transition-colors ${
+                className={`p-4 cursor-pointer rounded-lg mr-2 mt-2 hover:bg-gray-600 transition-colors ${
                   selectedUser?.id === user.id ? "bg-gray-600" : ""
                 }`}
               >
@@ -127,7 +113,7 @@ const Report = () => {
                 <h3 className="text-white text-base mb-4">
                   Here is the Message
                 </h3>
-                <div className="border-2 border-blue-500 rounded-lg p-4 bg-gray-800">
+                <div className="border-2 border-gray-600 rounded-lg p-4 bg-gray-800">
                   <p className="text-gray-300 text-sm leading-relaxed">
                     {selectedUser.message}
                   </p>

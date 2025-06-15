@@ -1,8 +1,27 @@
 import { useState } from "react";
-import { Search, Settings } from "lucide-react";
+import { Search, Settings, X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
-// Sample earning data
+// Enhanced earning data with additional details for modal
 const earningData = [
+  {
+    id: "#4567",
+    userName: "Rakibul Hasan Khan",
+    amount: "$120",
+    profit: "$6",
+    payable: "$114",
+    status: "Pay Now",
+    fullName: "Rakibul Hasan Khan",
+    accountNumber: "**** **** **** 3545",
+    accountHolderName: "mehad",
+    requestDate: "10-22-2024",
+  },
   {
     id: "#1001",
     userName: "Tanvir Rahman",
@@ -10,6 +29,10 @@ const earningData = [
     profit: "$6",
     payable: "$114",
     status: "Pay Now",
+    fullName: "Tanvir Rahman",
+    accountNumber: "**** **** **** 1234",
+    accountHolderName: "tanvir",
+    requestDate: "10-20-2024",
   },
   {
     id: "#1002",
@@ -18,6 +41,10 @@ const earningData = [
     profit: "$7",
     payable: "$143",
     status: "Pay Now",
+    fullName: "Mehedi Hasan",
+    accountNumber: "**** **** **** 5678",
+    accountHolderName: "mehedi",
+    requestDate: "10-21-2024",
   },
   {
     id: "#1003",
@@ -26,6 +53,10 @@ const earningData = [
     profit: "$9",
     payable: "$171",
     status: "Pay Now",
+    fullName: "Nusrat Jahan",
+    accountNumber: "**** **** **** 9012",
+    accountHolderName: "nusrat",
+    requestDate: "10-19-2024",
   },
   {
     id: "#1004",
@@ -34,6 +65,10 @@ const earningData = [
     profit: "$6",
     payable: "$124",
     status: "Paid",
+    fullName: "Shamim Ahmed",
+    accountNumber: "**** **** **** 3456",
+    accountHolderName: "shamim",
+    requestDate: "10-18-2024",
   },
   {
     id: "#1005",
@@ -42,6 +77,10 @@ const earningData = [
     profit: "$10",
     payable: "$190",
     status: "Paid",
+    fullName: "Fahim Sarker",
+    accountNumber: "**** **** **** 7890",
+    accountHolderName: "fahim",
+    requestDate: "10-17-2024",
   },
   {
     id: "#1006",
@@ -50,6 +89,10 @@ const earningData = [
     profit: "$8",
     payable: "$152",
     status: "Pay Now",
+    fullName: "Sadia Islam",
+    accountNumber: "**** **** **** 2345",
+    accountHolderName: "sadia",
+    requestDate: "10-16-2024",
   },
   {
     id: "#1007",
@@ -58,6 +101,10 @@ const earningData = [
     profit: "$9",
     payable: "$181",
     status: "Pay Now",
+    fullName: "Arif Hossain",
+    accountNumber: "**** **** **** 6789",
+    accountHolderName: "arif",
+    requestDate: "10-15-2024",
   },
   {
     id: "#1008",
@@ -66,6 +113,10 @@ const earningData = [
     profit: "$5",
     payable: "$105",
     status: "Paid",
+    fullName: "Tasnim Akter",
+    accountNumber: "**** **** **** 0123",
+    accountHolderName: "tasnim",
+    requestDate: "10-14-2024",
   },
   {
     id: "#1009",
@@ -74,182 +125,20 @@ const earningData = [
     profit: "$9",
     payable: "$166",
     status: "Pay Now",
-  },
-  {
-    id: "#1010",
-    userName: "Jannat Ferdous",
-    amount: "$140",
-    profit: "$7",
-    payable: "$133",
-    status: "Paid",
-  },
-  {
-    id: "#1011",
-    userName: "Imran Kabir",
-    amount: "$125",
-    profit: "$6",
-    payable: "$119",
-    status: "Pay Now",
-  },
-  {
-    id: "#1012",
-    userName: "Sultana Begum",
-    amount: "$135",
-    profit: "$7",
-    payable: "$128",
-    status: "Paid",
-  },
-  {
-    id: "#1013",
-    userName: "Asif Mahmud",
-    amount: "$145",
-    profit: "$7",
-    payable: "$138",
-    status: "Pay Now",
-  },
-  {
-    id: "#1014",
-    userName: "Rabeya Sultana",
-    amount: "$165",
-    profit: "$8",
-    payable: "$157",
-    status: "Pay Now",
-  },
-  {
-    id: "#1015",
-    userName: "Tanjim Tuhin",
-    amount: "$155",
-    profit: "$7",
-    payable: "$148",
-    status: "Paid",
-  },
-  {
-    id: "#1016",
-    userName: "Kazi Nayeem",
-    amount: "$170",
-    profit: "$9",
-    payable: "$161",
-    status: "Pay Now",
-  },
-  {
-    id: "#1017",
-    userName: "Lamia Hossain",
-    amount: "$185",
-    profit: "$10",
-    payable: "$175",
-    status: "Paid",
-  },
-  {
-    id: "#1018",
-    userName: "Shuvo Roy",
-    amount: "$190",
-    profit: "$10",
-    payable: "$180",
-    status: "Paid",
-  },
-  {
-    id: "#1019",
-    userName: "Sumaiya Akter",
-    amount: "$195",
-    profit: "$10",
-    payable: "$185",
-    status: "Pay Now",
-  },
-  {
-    id: "#1020",
-    userName: "Tariqul Islam",
-    amount: "$200",
-    profit: "$10",
-    payable: "$190",
-    status: "Paid",
-  },
-  {
-    id: "#1021",
-    userName: "Afia Chowdhury",
-    amount: "$115",
-    profit: "$5",
-    payable: "$110",
-    status: "Pay Now",
-  },
-  {
-    id: "#1022",
-    userName: "Nadim Alvi",
-    amount: "$175",
-    profit: "$9",
-    payable: "$166",
-    status: "Pay Now",
-  },
-  {
-    id: "#1023",
-    userName: "Rafiul Islam",
-    amount: "$185",
-    profit: "$9",
-    payable: "$176",
-    status: "Paid",
-  },
-  {
-    id: "#1024",
-    userName: "Sanjida Tabassum",
-    amount: "$195",
-    profit: "$10",
-    payable: "$185",
-    status: "Pay Now",
-  },
-  {
-    id: "#1025",
-    userName: "Nahid Parvez",
-    amount: "$125",
-    profit: "$6",
-    payable: "$119",
-    status: "Paid",
-  },
-  {
-    id: "#1026",
-    userName: "Mahfuz Alam",
-    amount: "$160",
-    profit: "$8",
-    payable: "$152",
-    status: "Pay Now",
-  },
-  {
-    id: "#1027",
-    userName: "Bushra Noor",
-    amount: "$145",
-    profit: "$7",
-    payable: "$138",
-    status: "Paid",
-  },
-  {
-    id: "#1028",
-    userName: "Rashed Khan",
-    amount: "$135",
-    profit: "$6",
-    payable: "$129",
-    status: "Pay Now",
-  },
-  {
-    id: "#1029",
-    userName: "Shamima Nasrin",
-    amount: "$155",
-    profit: "$8",
-    payable: "$147",
-    status: "Pay Now",
-  },
-  {
-    id: "#1030",
-    userName: "Sayeed Bin Osman",
-    amount: "$170",
-    profit: "$9",
-    payable: "$161",
-    status: "Paid",
+    fullName: "Mamun Chowdhury",
+    accountNumber: "**** **** **** 4567",
+    accountHolderName: "mamun",
+    requestDate: "10-13-2024",
   },
 ];
 
 const Earning = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedRequest, setSelectedRequest] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const itemsPerPage = 9; // Changed from 8 to 10
+  const itemsPerPage = 9;
 
   const filteredData = earningData.filter((item) =>
     item.userName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -304,12 +193,23 @@ const Earning = () => {
   };
 
   const handlePayNow = (item) => {
-    alert(`Processing payment for ${item.userName}: ${item.payable}`);
+    setSelectedRequest(item);
+    setIsModalOpen(true);
+  };
+
+  const handleProcessPayment = () => {
+    if (selectedRequest) {
+      alert(
+        `Payment processed for ${selectedRequest.userName}: ${selectedRequest.payable}`
+      );
+      setIsModalOpen(false);
+      setSelectedRequest(null);
+    }
   };
 
   // Calculate total payable for current page
   const totalPayableValue = currentPageData.reduce((acc, item) => {
-    const value = parseFloat(item.payable.replace("$", ""));
+    const value = Number.parseFloat(item.payable.replace("$", ""));
     return acc + value;
   }, 0);
 
@@ -320,7 +220,7 @@ const Earning = () => {
   };
 
   return (
-    <div className=" bg-black ">
+    <div className="bg-black">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div className="bg-gradient-to-b from-[#282828] to-black rounded-lg p-4 border border-gray-500">
           <div className="text-gray-300 text-sm font-medium mb-1">
@@ -485,6 +385,92 @@ const Earning = () => {
           </div>
         </div>
       </div>
+
+      {/* Withdraw Request Details Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] border-slate-600 text-white max-w-sm mx-auto">
+          <DialogHeader className="relative">
+            <DialogTitle className="text-center text-lg font-bold text-white mb-6">
+              Withdraw Request Details
+            </DialogTitle>
+            {/* <Button
+              variant="ghost"
+              size="icon"
+              className="absolute -top-2 -right-2 h-8 w-8 bg-red-600 hover:bg-red-700 text-white rounded-full"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <X className="h-4 w-4" />
+            </Button> */}
+          </DialogHeader>
+
+          {selectedRequest && (
+            <div className="space-y-4">
+              {/* Request Details */}
+              <div className="space-y-3">
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">User ID</span>
+                  <span className="text-white font-semibold">
+                    {selectedRequest.id}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">Full Name</span>
+                  <span className="text-white font-semibold">
+                    {selectedRequest.fullName}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">
+                    Account Number
+                  </span>
+                  <span className="text-white font-semibold">
+                    {selectedRequest.accountNumber}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">
+                    Account Holder Name
+                  </span>
+                  <span className="text-white font-semibold">
+                    {selectedRequest.accountHolderName}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">
+                    Payable amount
+                  </span>
+                  <span className="text-white font-semibold">
+                    {selectedRequest.payable}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">
+                    Request date
+                  </span>
+                  <span className="text-white font-semibold">
+                    {selectedRequest.requestDate}
+                  </span>
+                </div>
+              </div>
+
+              {/* Pay Now Button */}
+              <div className="pt-4">
+                <Button
+                  onClick={handleProcessPayment}
+                  className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 px-4 rounded-md transition-colors"
+                >
+                  Pay Now
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

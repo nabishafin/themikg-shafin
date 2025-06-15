@@ -10,129 +10,304 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CalendarIcon, Search, UserIcon } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { CalendarIcon, Search, UserIcon, X } from "lucide-react";
+// import Image from "next/image"
 
-// Sample user data with 10 unique users
+// Enhanced user data with detailed information
 const userData = [
+  {
+    id: "#4567",
+    name: "Rakibul Hasan Khan",
+    email: "rakibul.khan@gmail.com",
+    joiningDate: "03-01-2025",
+    fullName: "Rakibul Hasan Khan",
+    dateOfBirth: "19 Nov, 2002",
+    height: "156 CM",
+    weight: "50 Kg",
+    location: "Miami, USA",
+    phoneNumber: "+880 1827347685",
+    ethnicity: "American",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
+  },
   {
     id: "#2001",
     name: "Tanvir Rahman",
     email: "tanvir.r@gmail.com",
     joiningDate: "03-01-2025",
+    fullName: "Tanvir Rahman",
+    dateOfBirth: "15 Mar, 1995",
+    height: "175 CM",
+    weight: "70 Kg",
+    location: "Dhaka, Bangladesh",
+    phoneNumber: "+880 1712345678",
+    ethnicity: "Bangladeshi",
+    situation: "Married",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
     id: "#2002",
     name: "Mehedi Hasan",
     email: "mehedi.h@gmail.com",
     joiningDate: "03-03-2025",
+    fullName: "Mehedi Hasan",
+    dateOfBirth: "22 Jul, 1998",
+    height: "168 CM",
+    weight: "65 Kg",
+    location: "Chittagong, Bangladesh",
+    phoneNumber: "+880 1823456789",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
     id: "#2003",
     name: "Sadia Jahan",
     email: "sadia.j@gmail.com",
     joiningDate: "03-04-2025",
+    fullName: "Sadia Jahan",
+    dateOfBirth: "10 Dec, 1996",
+    height: "160 CM",
+    weight: "55 Kg",
+    location: "Sylhet, Bangladesh",
+    phoneNumber: "+880 1934567890",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
     id: "#2004",
     name: "Nafis Ahmed",
     email: "nafis.a@gmail.com",
     joiningDate: "03-06-2025",
+    fullName: "Nafis Ahmed",
+    dateOfBirth: "05 Sep, 1997",
+    height: "172 CM",
+    weight: "68 Kg",
+    location: "Rajshahi, Bangladesh",
+    phoneNumber: "+880 1645678901",
+    ethnicity: "Bangladeshi",
+    situation: "Married",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
     id: "#2005",
     name: "Arifa Sultana",
     email: "arifa.s@gmail.com",
     joiningDate: "03-08-2025",
+    fullName: "Arifa Sultana",
+    dateOfBirth: "18 Jan, 1999",
+    height: "158 CM",
+    weight: "52 Kg",
+    location: "Khulna, Bangladesh",
+    phoneNumber: "+880 1756789012",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2006",
-    name: "Shuvo Roy",
-    email: "shuvo.r@gmail.com",
-    joiningDate: "03-09-2025",
+    id: "#4567",
+    name: "Rakibul Hasan Khan",
+    email: "rakibul.khan@gmail.com",
+    joiningDate: "03-01-2025",
+    fullName: "Rakibul Hasan Khan",
+    dateOfBirth: "19 Nov, 2002",
+    height: "156 CM",
+    weight: "50 Kg",
+    location: "Miami, USA",
+    phoneNumber: "+880 1827347685",
+    ethnicity: "American",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2007",
-    name: "Tanjim Tuhin",
-    email: "tanjim.t@gmail.com",
-    joiningDate: "03-11-2025",
+    id: "#2001",
+    name: "Tanvir Rahman",
+    email: "tanvir.r@gmail.com",
+    joiningDate: "03-01-2025",
+    fullName: "Tanvir Rahman",
+    dateOfBirth: "15 Mar, 1995",
+    height: "175 CM",
+    weight: "70 Kg",
+    location: "Dhaka, Bangladesh",
+    phoneNumber: "+880 1712345678",
+    ethnicity: "Bangladeshi",
+    situation: "Married",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2008",
-    name: "Bushra Noor",
-    email: "bushra.n@gmail.com",
-    joiningDate: "03-13-2025",
+    id: "#2002",
+    name: "Mehedi Hasan",
+    email: "mehedi.h@gmail.com",
+    joiningDate: "03-03-2025",
+    fullName: "Mehedi Hasan",
+    dateOfBirth: "22 Jul, 1998",
+    height: "168 CM",
+    weight: "65 Kg",
+    location: "Chittagong, Bangladesh",
+    phoneNumber: "+880 1823456789",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2009",
-    name: "Asif Mahmud",
-    email: "asif.m@gmail.com",
-    joiningDate: "03-15-2025",
+    id: "#2003",
+    name: "Sadia Jahan",
+    email: "sadia.j@gmail.com",
+    joiningDate: "03-04-2025",
+    fullName: "Sadia Jahan",
+    dateOfBirth: "10 Dec, 1996",
+    height: "160 CM",
+    weight: "55 Kg",
+    location: "Sylhet, Bangladesh",
+    phoneNumber: "+880 1934567890",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2010",
-    name: "Sumaiya Akter",
-    email: "sumaiya.a@gmail.com",
-    joiningDate: "03-17-2025",
+    id: "#2004",
+    name: "Nafis Ahmed",
+    email: "nafis.a@gmail.com",
+    joiningDate: "03-06-2025",
+    fullName: "Nafis Ahmed",
+    dateOfBirth: "05 Sep, 1997",
+    height: "172 CM",
+    weight: "68 Kg",
+    location: "Rajshahi, Bangladesh",
+    phoneNumber: "+880 1645678901",
+    ethnicity: "Bangladeshi",
+    situation: "Married",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2011",
-    name: "Farhan Kabir",
-    email: "farhan.k@gmail.com",
-    joiningDate: "03-18-2025",
+    id: "#2005",
+    name: "Arifa Sultana",
+    email: "arifa.s@gmail.com",
+    joiningDate: "03-08-2025",
+    fullName: "Arifa Sultana",
+    dateOfBirth: "18 Jan, 1999",
+    height: "158 CM",
+    weight: "52 Kg",
+    location: "Khulna, Bangladesh",
+    phoneNumber: "+880 1756789012",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2012",
-    name: "Sultana Begum",
-    email: "sultana.b@gmail.com",
-    joiningDate: "03-19-2025",
+    id: "#4567",
+    name: "Rakibul Hasan Khan",
+    email: "rakibul.khan@gmail.com",
+    joiningDate: "03-01-2025",
+    fullName: "Rakibul Hasan Khan",
+    dateOfBirth: "19 Nov, 2002",
+    height: "156 CM",
+    weight: "50 Kg",
+    location: "Miami, USA",
+    phoneNumber: "+880 1827347685",
+    ethnicity: "American",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2013",
-    name: "Raihan Hossain",
-    email: "raihan.h@gmail.com",
-    joiningDate: "03-20-2025",
+    id: "#2001",
+    name: "Tanvir Rahman",
+    email: "tanvir.r@gmail.com",
+    joiningDate: "03-01-2025",
+    fullName: "Tanvir Rahman",
+    dateOfBirth: "15 Mar, 1995",
+    height: "175 CM",
+    weight: "70 Kg",
+    location: "Dhaka, Bangladesh",
+    phoneNumber: "+880 1712345678",
+    ethnicity: "Bangladeshi",
+    situation: "Married",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2014",
-    name: "Lamia Hossain",
-    email: "lamia.h@gmail.com",
-    joiningDate: "03-22-2025",
+    id: "#2002",
+    name: "Mehedi Hasan",
+    email: "mehedi.h@gmail.com",
+    joiningDate: "03-03-2025",
+    fullName: "Mehedi Hasan",
+    dateOfBirth: "22 Jul, 1998",
+    height: "168 CM",
+    weight: "65 Kg",
+    location: "Chittagong, Bangladesh",
+    phoneNumber: "+880 1823456789",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2015",
-    name: "Kazi Nayeem",
-    email: "kazi.n@gmail.com",
-    joiningDate: "03-23-2025",
+    id: "#2003",
+    name: "Sadia Jahan",
+    email: "sadia.j@gmail.com",
+    joiningDate: "03-04-2025",
+    fullName: "Sadia Jahan",
+    dateOfBirth: "10 Dec, 1996",
+    height: "160 CM",
+    weight: "55 Kg",
+    location: "Sylhet, Bangladesh",
+    phoneNumber: "+880 1934567890",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2016",
-    name: "Imran Kabir",
-    email: "imran.k@gmail.com",
-    joiningDate: "03-24-2025",
+    id: "#2004",
+    name: "Nafis Ahmed",
+    email: "nafis.a@gmail.com",
+    joiningDate: "03-06-2025",
+    fullName: "Nafis Ahmed",
+    dateOfBirth: "05 Sep, 1997",
+    height: "172 CM",
+    weight: "68 Kg",
+    location: "Rajshahi, Bangladesh",
+    phoneNumber: "+880 1645678901",
+    ethnicity: "Bangladeshi",
+    situation: "Married",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
   {
-    id: "#2017",
-    name: "Afia Chowdhury",
-    email: "afia.c@gmail.com",
-    joiningDate: "03-25-2025",
-  },
-  {
-    id: "#2018",
-    name: "Nadim Alvi",
-    email: "nadim.a@gmail.com",
-    joiningDate: "03-26-2025",
-  },
-  {
-    id: "#2019",
-    name: "Shamima Nasrin",
-    email: "shamima.n@gmail.com",
-    joiningDate: "03-27-2025",
-  },
-  {
-    id: "#2020",
-    name: "Sayeed Bin Osman",
-    email: "sayeed.o@gmail.com",
-    joiningDate: "03-28-2025",
+    id: "#2005",
+    name: "Arifa Sultana",
+    email: "arifa.s@gmail.com",
+    joiningDate: "03-08-2025",
+    fullName: "Arifa Sultana",
+    dateOfBirth: "18 Jan, 1999",
+    height: "158 CM",
+    weight: "52 Kg",
+    location: "Khulna, Bangladesh",
+    phoneNumber: "+880 1756789012",
+    ethnicity: "Bangladeshi",
+    situation: "Single",
+    role: "Active",
+    avatar: "/placeholder.svg?height=120&width=120",
   },
 ];
 
@@ -140,6 +315,8 @@ const Users = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [joiningDate, setJoiningDate] = useState("");
   const [userName, setUserName] = useState("");
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const itemsPerPage = 12;
 
   // Filtered users
@@ -161,7 +338,7 @@ const Users = () => {
   // Generate page numbers with limits to prevent too many buttons
   const maxVisiblePages = 5;
   let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-  let endPage = Math.min(totalFilteredPages, startPage + maxVisiblePages - 1);
+  const endPage = Math.min(totalFilteredPages, startPage + maxVisiblePages - 1);
 
   if (endPage - startPage + 1 < maxVisiblePages) {
     startPage = Math.max(1, endPage - maxVisiblePages + 1);
@@ -172,8 +349,13 @@ const Users = () => {
     pageNumbers.push(i);
   }
 
+  const handleViewDetails = (user) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className=" bg-black ">
+    <div className="bg-black">
       <Card className="bg-gradient-to-b from-[#282828] to-black border-slate-700">
         <CardHeader className="pb-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -251,6 +433,7 @@ const Users = () => {
                       <Button
                         size="sm"
                         className="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-1 text-xs"
+                        onClick={() => handleViewDetails(user)}
                       >
                         View Details
                       </Button>
@@ -338,6 +521,115 @@ const Users = () => {
           )}
         </CardContent>
       </Card>
+
+      {/* User Details Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="bg-black border-slate-600 text-white max-w-md mx-auto">
+          <DialogHeader className="relative">
+            <DialogTitle className="text-center text-xl font-bold text-white mb-6">
+              User Details
+            </DialogTitle>
+          </DialogHeader>
+
+          {selectedUser && (
+            <div className="space-y-4">
+              {/* User Avatar */}
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <img
+                    src={
+                      selectedUser.id === "#4567"
+                        ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-q10EaP7LYr5Q0ECQGqB1pWexGaCksP.png"
+                        : selectedUser.avatar
+                    }
+                    alt={selectedUser.name}
+                    width={120}
+                    height={120}
+                    className="rounded-full border-4 border-slate-600 object-cover w-[120px] h-[120px]"
+                  />
+                </div>
+              </div>
+
+              {/* User Information */}
+              <div className="space-y-3">
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">User ID</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.id}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">Full Name</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.fullName}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">
+                    Date of Birth
+                  </span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.dateOfBirth}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">Height</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.height}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">Weight</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.weight}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">Location</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.location}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">
+                    Phone number
+                  </span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.phoneNumber}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">Ethnicity</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.ethnicity}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2 border-b border-slate-600">
+                  <span className="text-gray-300 font-medium">Situation</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.situation}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">Role</span>
+                  <span className="text-white font-semibold">
+                    {selectedUser.role}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
