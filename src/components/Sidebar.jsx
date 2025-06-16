@@ -1,6 +1,6 @@
 import img from "../assets/image.png";
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import {
   Home,
   Users,
@@ -87,11 +87,11 @@ export default function Sidebar() {
   return (
     <div className="flex h-screen w-full flex-col bg-[#222222] p-3 md:m-3 m-0 rounded-md">
       {/* Logo Section */}
-      <div className="border-b border-gray-600 pb-4">
+      <Link to={"/dashboard"} className="border-b border-gray-600 pb-4">
         <div className="flex justify-center items-center py-5">
           <img className="w-36" src={img} alt="Logo" />
         </div>
-      </div>
+      </Link>
 
       {/* Navigation Items */}
       <nav className="flex flex-col space-y-1 mt-4 flex-1">

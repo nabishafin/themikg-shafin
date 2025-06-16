@@ -13,6 +13,9 @@ import SignInPage from "../pages/auth/SignInPage";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import VerifyCode from "../pages/auth/VerifyCode";
 import SetNewPassword from "../pages/auth/SetNewPassword";
+import EditTermsAndConditions from "../pages/dashboardpages/EditTermsAndConditions";
+import EditPolicy from "../pages/dashboardpages/EditPolicy";
+import EditAbout from "../pages/dashboardpages/EditAbout";
 
 const routes = createBrowserRouter([
   {
@@ -64,12 +67,24 @@ const routes = createBrowserRouter([
         element: <Terms />,
       },
       {
+        path: "settings/editerms",
+        element: <EditTermsAndConditions />,
+      },
+      {
         path: "settings/privacy",
         element: <PrivacyPolicy />,
       },
       {
+        path: "settings/editprivacy",
+        element: <EditPolicy />,
+      },
+      {
         path: "settings/about",
         element: <About />,
+      },
+      {
+        path: "settings/editabout",
+        element: <EditAbout />,
       },
     ],
   },

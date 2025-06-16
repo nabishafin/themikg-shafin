@@ -75,7 +75,7 @@ const EarningsChart = () => {
                   tickFormatter={(value) => `$${value}k`}
                   domain={[0, 10]}
                 />
-                <
+                <Tooltip
                   contentStyle={{
                     backgroundColor: "#1f2937",
                     border: "1px solid #374151",
