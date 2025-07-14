@@ -142,22 +142,6 @@ const Profile = () => {
                       {profileData.name?.charAt(0) || "R"}
                     </AvatarFallback>
                   </Avatar>
-
-                  {/* Camera Upload Button */}
-                  <label className="absolute -bottom-2 -right-2 bg-[#23769D]  rounded-full p-2 cursor-pointer transition-colors">
-                    {imageLoading ? (
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                    ) : (
-                      <Camera className="w-4 h-4 text-white" />
-                    )}
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                      className="hidden"
-                      disabled={imageLoading}
-                    />
-                  </label>
                 </div>
 
                 <h2 className="text-xl font-semibold text-white mb-2">
