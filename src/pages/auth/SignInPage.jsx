@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import img from "../../assets/image.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Sign in attempt:", { email, password, rememberMe });
+    navigate("/dashboard"); // Redirect to dashboard on successful sign-in
   };
 
   return (
